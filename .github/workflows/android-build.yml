@@ -28,5 +28,5 @@ jobs:
       with:
         name: app-debug-apk
         path: app/build/outputs/apk/debug/app-debug.apk
-        retention-days: 1  # APK dosyasını 1 gün saklasın
-
+        retention-days: 1
+        if-no-files-found: error  # Hata mesajı verecek eğer dosya bulunmazsa
