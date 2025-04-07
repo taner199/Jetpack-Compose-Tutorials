@@ -23,10 +23,12 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assembleDebug
 
-    - name: Upload APK
+    - name: Archive APK
+      run: |
+        mkdir -p output
+        cp app/build/outputs/apk/debug/app-debug.apk output/
+    - name: Upload APK Artifact
       uses: actions/upload-artifact@v2
       with:
         name: app-debug-apk
-        path: app/build/outputs/apk/debug/app-debug.apk
-        retention-days: 1
-        if-no-files-found: error  # Hata mesajı verecek eğer dosya bulunmazsa
+        path: output/app-debug.apk
